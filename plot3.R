@@ -1,3 +1,11 @@
+#if file does not exist, download it
+if(!file.exists("household_power_consumption.txt"))
+{
+  data_url<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+  download.file(data_url,"household_power_consumption.zip")
+  unzip("household_power_consumption.zip")
+}
+
 #load the household_power_consumption data
 data <- read.table("household_power_consumption.txt",sep=";", header = T, stringsAsFactors = F)
 
